@@ -1,0 +1,159 @@
+/* Reset CSS */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: white;
+  }
+  
+  /* Container utama */
+  .quiz-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #1e293b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Header */
+  #quiz-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fbbf24;
+  }
+  
+  #quiz-desc {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #d1d5db;
+  }
+  
+  /* Tombol */
+  button {
+    padding: 10px 20px;
+    background-color: #fbbf24;
+    color: #1e293b;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #d97706;
+  }
+  
+  /* Pertanyaan */
+  .question {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  /* Pilihan */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #334155;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .option:hover {
+    background-color: #475569;
+  }
+  
+  .option.correct {
+    background-color: #22c55e; /* Warna hijau untuk jawaban benar */
+  }
+  
+  .option.incorrect {
+    background-color: #ef4444; /* Warna merah untuk jawaban salah */
+  }
+  
+  /* Checklist */
+  .option span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: transparent;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .option.correct span {
+    background-color: white;
+    color: green;
+  }
+  
+  .option.incorrect span {
+    background-color: white;
+    color: red;
+  }
+  
+  /* Animasi fadeIn */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsif untuk layar kecil */
+  @media screen and (max-width: 600px) {
+    .quiz-container {
+      padding: 15px;
+      width: 100%;
+    }
+  
+    #quiz-header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .question {
+      font-size: 1rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  
+    .option {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+  
