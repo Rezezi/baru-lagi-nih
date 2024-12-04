@@ -1,82 +1,90 @@
 const questions = [
   // Soal Mudah
-  {
-    question: "Apa singkatan dari HTML?",
-    options: [
-      "HyperText Markup Language",
-      "Home Tool Markup Language",
-      "Hyperlink Text Markup Language",
-      "Hyper Transfer Markup Language",
-    ],
-    correctAnswer: 0, // Jawaban benar: HyperText Markup Language
-  },
-  {
-    question: "Apa nama simbol yang digunakan untuk membuat komentar dalam JavaScript?",
-    options: ["//", "#", "<!-- -->", "/* */"],
-    correctAnswer: 0, // Jawaban benar: //
-  },
-  {
-    question: "Bahasa pemrograman manakah yang digunakan untuk membuat halaman web dinamis?",
-    options: ["HTML", "CSS", "JavaScript", "C++"],
-    correctAnswer: 2, // Jawaban benar: JavaScript
-  },
-  {
-    question: "Apa yang digunakan untuk menentukan warna dalam CSS?",
-    options: ["RGB", "HTML", "JavaScript", "HTTP"],
-    correctAnswer: 0, // Jawaban benar: RGB
-  },
-  {
-    question: "Apa fungsi utama dari 'console.log' dalam JavaScript?",
-    options: [
-      "Membuat variable baru",
-      "Menampilkan data di konsol",
-      "Menjalankan aplikasi",
-      "Menghapus error",
-    ],
-    correctAnswer: 1, // Jawaban benar: Menampilkan data di konsol
-  },
-
-  // Soal Sulit
-  {
-    question: "Apa kompleksitas waktu terbaik dari algoritma QuickSort?",
-    options: ["O(n^2)", "O(n log n)", "O(n)", "O(log n)"],
-    correctAnswer: 1, // Jawaban benar: O(n log n)
-  },
-  {
-    question: "Siapa pencipta bahasa pemrograman Python?",
-    options: [
-      "Dennis Ritchie",
-      "Guido van Rossum",
-      "James Gosling",
-      "Brendan Eich",
-    ],
-    correctAnswer: 1, // Jawaban benar: Guido van Rossum
-  },
-  {
-    question: "Apa yang dimaksud dengan 'closure' dalam JavaScript?",
-    options: [
-      "Fungsi dalam fungsi yang mengakses variabel luar",
-      "Metode untuk mengulang data",
-      "Struktur data berbasis pohon",
-      "Kompilasi fungsi secara otomatis",
-    ],
-    correctAnswer: 0, // Jawaban benar: Fungsi dalam fungsi yang mengakses variabel luar
-  },
-  {
-    question: "Apa yang dimaksud dengan 'asynchronous programming'?",
-    options: [
-      "Kode yang dieksekusi secara langsung",
-      "Kode yang menunggu proses selesai sebelum lanjut",
-      "Kode yang berjalan tanpa menunggu operasi lainnya selesai",
-      "Kode yang berjalan di browser",
-    ],
-    correctAnswer: 2, // Jawaban benar: Kode yang berjalan tanpa menunggu operasi lainnya selesai
-  },
-  {
-    question: "Bahasa pemrograman apa yang digunakan untuk membangun backend dengan Node.js?",
-    options: ["JavaScript", "Ruby", "PHP", "C#"],
-    correctAnswer: 0, // Jawaban benar: JavaScript
-  },
+  
+    // Soal Mudah
+    {
+      question: "Apa singkatan dari CSS?",
+      options: [
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Creative Style Sheets",
+        "Cascading Simple Sheets",
+      ],
+      correctAnswer: 0, // Jawaban benar: Cascading Style Sheets
+    },
+    {
+      question: "Apa fungsi utama dari HTML?",
+      options: [
+        "Mendesain tata letak halaman",
+        "Membuat struktur halaman web",
+        "Mengatur warna teks",
+        "Menjalankan kode program",
+      ],
+      correctAnswer: 1, // Jawaban benar: Membuat struktur halaman web
+    },
+    {
+      question: "Bahasa pemrograman manakah yang paling sering digunakan untuk mengatur tampilan web?",
+      options: ["JavaScript", "CSS", "HTML", "C++"],
+      correctAnswer: 1, // Jawaban benar: CSS
+    },
+    {
+      question: "Apa simbol yang digunakan untuk membuat array di JavaScript?",
+      options: ["{}", "[]", "<>", "%%"],
+      correctAnswer: 1, // Jawaban benar: []
+    },
+    {
+      question: "Manakah yang termasuk alat pengembangan web browser?",
+      options: ["Photoshop", "DevTools", "Visual Studio", "Android Studio"],
+      correctAnswer: 1, // Jawaban benar: DevTools
+    },
+  
+    // Soal Sulit
+    {
+      question: "Apa fungsi utama dari 'StatefulWidget' dalam Flutter?",
+      options: [
+        "Membuat aplikasi yang hanya memiliki satu halaman",
+        "Mengelola dan mempertahankan status antar widget",
+        "Mengubah tampilan aplikasi secara otomatis",
+        "Mengatur tata letak aplikasi",
+      ],
+      correctAnswer: 1, // Jawaban benar: Mengelola dan mempertahankan status antar widget
+    },
+    {
+      question: "Apa perbedaan utama antara 'Hot Reload' dan 'Hot Restart' di Flutter?",
+      options: [
+        "Hot Reload memperbarui aplikasi tanpa kehilangan status, sedangkan Hot Restart memulai ulang aplikasi sepenuhnya",
+        "Hot Reload memulai ulang aplikasi, sedangkan Hot Restart memperbarui aplikasi",
+        "Hot Reload digunakan untuk aplikasi iOS, dan Hot Restart untuk Android",
+        "Tidak ada perbedaan, keduanya sama",
+      ],
+      correctAnswer: 0, // Jawaban benar: Hot Reload memperbarui aplikasi tanpa kehilangan status, sedangkan Hot Restart memulai ulang aplikasi sepenuhnya
+    },
+    {
+      question: "Apa yang dimaksud dengan 'Middleware' dalam pengembangan backend?",
+      options: [
+        "Perangkat lunak untuk membuat front-end",
+        "Fungsi yang mengelola permintaan sebelum mencapai server atau handler",
+        "Framework untuk mengelola database",
+        "Kode yang hanya berjalan di sisi klien",
+      ],
+      correctAnswer: 1, // Jawaban benar: Fungsi yang mengelola permintaan sebelum mencapai server atau handler
+    },
+    {
+      question: "Manakah dari berikut ini yang merupakan bagian dari arsitektur Redux?",
+      options: ["Store, Reducers, Actions", "Node, State, Components", "Data, Logic, UI", "Controllers, Models, Views"],
+      correctAnswer: 0, // Jawaban benar: Store, Reducers, Actions
+    },
+    {
+      question: "Apa keuntungan utama menggunakan provider state management di Flutter dibandingkan setState?",
+      options: [
+        "Provider lebih mudah digunakan untuk aplikasi kecil",
+        "Provider memungkinkan manajemen state secara global dan lebih terorganisir",
+        "Provider hanya mendukung aplikasi Android",
+        "Provider hanya digunakan untuk pengaturan database",
+      ],
+      correctAnswer: 1, // Jawaban benar: Provider memungkinkan manajemen state secara global dan lebih terorganisir
+    },
+    
 ];
 
 // Fungsi untuk mengacak urutan soal
