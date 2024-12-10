@@ -4,78 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Game</title>
+  <script src="script.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    #level-up-animation {
-      animation: fadeInOut 2s ease-in-out;
+    body {
+      background: linear-gradient(to bottom, #1e293b, #334155);
+      color: #f8fafc;
+      font-family: 'Arial', sans-serif;
     }
-
-    @keyframes fadeInOut {
+    button:hover {
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+    /* Keyframes for animations */
+    @keyframes textZoomIn {
       0% {
+        transform: scale(0.5);
         opacity: 0;
-        transform: scale(0.8);
       }
       50% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0;
         transform: scale(1.2);
-      }
-    }
-
-    #win-animation, #gameover-animation {
-      animation: zoomIn 1.5s ease-out;
-    }
-
-    @keyframes zoomIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.5);
+        opacity: 1;
       }
       100% {
-        opacity: 1;
         transform: scale(1);
       }
+    }
+
+    @keyframes bounceText {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Animations for Game Over and Win text */
+    .zoom-in {
+      animation: textZoomIn 0.8s ease-in-out;
+    }
+
+    .bounce {
+      animation: bounceText 1s infinite;
     }
   </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen flex items-center justify-center">
-  <!-- Kontainer Kuis -->
-  <div id="quiz-container" class="w-full max-w-lg p-8 bg-purple-800 rounded-lg shadow-lg text-center">
-    <h1 id="question" class="text-xl font-bold mb-6">Pertanyaan akan muncul di sini...</h1>
-    <div id="options" class="grid grid-cols-2 gap-4">
-      <!-- Opsi akan diisi melalui JavaScript -->
-    </div>
-    <div class="mt-6 flex justify-between">
-      <span id="level" class="text-sm font-medium">Level: Easy</span>
-      <span id="score" class="text-sm font-medium">Score: 0</span>
-    </div>
-    <div id="feedback" class="mt-4 text-sm hidden"></div>
+<body class="min-h-screen flex items-center justify-center">
+  <!-- Quiz Container -->
+  <div id="quiz-container" class="bg-gray-800 shadow-lg rounded-lg w-11/12 sm:w-4/5 lg:w-1/2 p-8">
+    <h1 class="text-3xl font-bold text-center text-yellow-400">PPLG Quiz</h1>
+    <p id="level" class="text-center text-sm mt-2 text-gray-400">Level: Easy</p>
+    <p id="score" class="text-center text-sm mt-2 text-gray-400">Score: 0</p>
+    <div id="question" class="mt-6 text-lg font-semibold text-center"></div>
+    <div id="options" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    <p id="feedback" class="text-center mt-4 hidden"></p>
   </div>
 
-  <!-- Animasi Level-Up -->
-  <div id="level-up-animation" class="hidden fixed inset-0 bg-purple-900 text-white flex items-center justify-center">
-    <h1 class="text-5xl font-extrabold">LEVEL UP!</h1>
+  <!-- Win Scene -->
+  <div id="win-scene" class="hidden fixed inset-0 bg-green-800 flex flex-col items-center justify-center">
+    <h1 class="text-5xl font-bold text-yellow-400 zoom-in">Congratulations!</h1>
+    <p class="mt-4 text-lg text-gray-300 bounce">You’ve completed all levels with a perfect score!</p>
+    <button onclick="restartGame()" class="mt-6 bg-yellow-500 text-black font-bold py-2 px-6 rounded hover:bg-yellow-400">Restart Game</button>
   </div>
 
-  <!-- Scene Win -->
-  <div id="win-scene" class="hidden fixed inset-0 bg-gradient-to-br from-green-400 to-green-600 text-white flex flex-col items-center justify-center">
-    <h1 id="win-animation" class="text-6xl font-extrabold">Congratulations!</h1>
-    <p class="text-xl mt-4">You answered all questions correctly!</p>
-    <button onclick="restartGame()" class="bg-white text-green-800 font-bold mt-6 py-2 px-6 rounded-lg shadow-lg hover:bg-green-200">
-      Restart Game
-    </button>
-  </div>
-
-  <!-- Scene Game Over -->
-  <div id="gameover-scene" class="hidden fixed inset-0 bg-gradient-to-br from-red-500 to-red-700 text-white flex flex-col items-center justify-center">
-    <h1 id="gameover-animation" class="text-6xl font-extrabold">Game Over!</h1>
-    <p id="final-score" class="text-xl mt-4">Skor Anda: 0</p>
-    <button onclick="restartGame()" class="bg-white text-red-800 font-bold mt-6 py-2 px-6 rounded-lg shadow-lg hover:bg-red-200">
-      Restart Game
-    </button>
+  <!-- Game Over Scene -->
+  <div id="gameover-scene" class="hidden fixed inset-0 bg-red-800 flex flex-col items-center justify-center">
+    <h1 class="text-5xl font-bold text-yellow-400 zoom-in">Game Over</h1>
+    <p id="final-score" class="mt-4 text-lg text-gray-300 bounce"></p>
+    <button onclick="restartGame()" class="mt-6 bg-yellow-500 text-black font-bold py-2 px-6 rounded hover:bg-yellow-400">Restart Game</button>
   </div>
 
   <script src="script.js"></script>
