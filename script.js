@@ -1,196 +1,126 @@
-const questions = [
-  // Soal Mudah
-  
-    // Soal Mudah
-    {
-      question: "Apa singkatan dari CSS?",
-      options: [
-        "Cascading Style Sheets",
-        "Computer Style Sheets",
-        "Creative Style Sheets",
-        "Cascading Simple Sheets",
-      ],
-      correctAnswer: 0, // Jawaban benar: Cascading Style Sheets
-    },
-    {
-      question: "Apa fungsi utama dari HTML?",
-      options: [
-        "Mendesain tata letak halaman",
-        "Membuat struktur halaman web",
-        "Mengatur warna teks",
-        "Menjalankan kode program",
-      ],
-      correctAnswer: 1, // Jawaban benar: Membuat struktur halaman web
-    },
-    {
-      question: "Bahasa pemrograman manakah yang paling sering digunakan untuk mengatur tampilan web?",
-      options: ["JavaScript", "CSS", "HTML", "C++"],
-      correctAnswer: 1, // Jawaban benar: CSS
-    },
-    {
-      question: "Apa simbol yang digunakan untuk membuat array di JavaScript?",
-      options: ["{}", "[]", "<>", "%%"],
-      correctAnswer: 1, // Jawaban benar: []
-    },
-    {
-      question: "Manakah yang termasuk alat pengembangan web browser?",
-      options: ["Photoshop", "DevTools", "Visual Studio", "Android Studio"],
-      correctAnswer: 1, // Jawaban benar: DevTools
-    },
-  
-    // Soal Sulit
-    {
-      question: "Apa fungsi utama dari 'StatefulWidget' dalam Flutter?",
-      options: [
-        "Membuat aplikasi yang hanya memiliki satu halaman",
-        "Mengelola dan mempertahankan status antar widget",
-        "Mengubah tampilan aplikasi secara otomatis",
-        "Mengatur tata letak aplikasi",
-      ],
-      correctAnswer: 1, // Jawaban benar: Mengelola dan mempertahankan status antar widget
-    },
-    {
-      question: "Apa perbedaan utama antara 'Hot Reload' dan 'Hot Restart' di Flutter?",
-      options: [
-        "Hot Reload memperbarui aplikasi tanpa kehilangan status, sedangkan Hot Restart memulai ulang aplikasi sepenuhnya",
-        "Hot Reload memulai ulang aplikasi, sedangkan Hot Restart memperbarui aplikasi",
-        "Hot Reload digunakan untuk aplikasi iOS, dan Hot Restart untuk Android",
-        "Tidak ada perbedaan, keduanya sama",
-      ],
-      correctAnswer: 0, // Jawaban benar: Hot Reload memperbarui aplikasi tanpa kehilangan status, sedangkan Hot Restart memulai ulang aplikasi sepenuhnya
-    },
-    {
-      question: "Apa yang dimaksud dengan 'Middleware' dalam pengembangan backend?",
-      options: [
-        "Perangkat lunak untuk membuat front-end",
-        "Fungsi yang mengelola permintaan sebelum mencapai server atau handler",
-        "Framework untuk mengelola database",
-        "Kode yang hanya berjalan di sisi klien",
-      ],
-      correctAnswer: 1, // Jawaban benar: Fungsi yang mengelola permintaan sebelum mencapai server atau handler
-    },
-    {
-      question: "Manakah dari berikut ini yang merupakan bagian dari arsitektur Redux?",
-      options: ["Store, Reducers, Actions", "Node, State, Components", "Data, Logic, UI", "Controllers, Models, Views"],
-      correctAnswer: 0, // Jawaban benar: Store, Reducers, Actions
-    },
-    {
-      question: "Apa keuntungan utama menggunakan provider state management di Flutter dibandingkan setState?",
-      options: [
-        "Provider lebih mudah digunakan untuk aplikasi kecil",
-        "Provider memungkinkan manajemen state secara global dan lebih terorganisir",
-        "Provider hanya mendukung aplikasi Android",
-        "Provider hanya digunakan untuk pengaturan database",
-      ],
-      correctAnswer: 1, // Jawaban benar: Provider memungkinkan manajemen state secara global dan lebih terorganisir
-    },
-    
-];
+const quizData = {
+  easy: [
+    { question: "Apa itu PPLG?", options: ["Pengembangan Perangkat Lunak dan Gim", "Pemrograman Lanjutan Generasi", "Pemrograman Lengkap dan Gimifikasi", "Pemecahan Masalah Logika"], answer: 0 },
+    { question: "HTML adalah?", options: ["Bahasa Markup", "Bahasa Backend", "Framework", "Database"], answer: 0 },
+    { question: "CSS digunakan untuk?", options: ["Membuat tampilan", "Logika backend", "Keamanan data", "Otentikasi"], answer: 0 },
+    { question: "Apa itu Tailwind CSS?", options: ["Framework CSS", "Bahasa backend", "Framework Database", "Bahasa Pemrograman"], answer: 0 },
+    { question: "Bahasa Java digunakan untuk?", options: ["Semua di atas", "Frontend", "Android", "Pemrograman game"], answer: 0 },
+  ],
+  medium: [
+    { question: "Apa itu OOP?", options: ["Object-Oriented Programming", "Optimasi Online Programming", "Object Output Processing", "Optimasi Parsing"], answer: 0 },
+    { question: "Apa itu IDE?", options: ["Integrated Development Environment", "Integrated Debugging Entry", "Interactive Debug Editor", "Interactive Development Event"], answer: 0 },
+    { question: "React digunakan untuk?", options: ["Membuat UI", "Backend", "Database", "Keamanan"], answer: 0 },
+    { question: "API adalah?", options: ["Application Programming Interface", "Artificial Intelligence Program", "Automation Programming Integration", "Abstract Parsing Index"], answer: 0 },
+    { question: "Apa itu REST?", options: ["Representational State Transfer", "Relational State Transfer", "Remote Event System", "Runtime Environment State"], answer: 0 },
+  ],
+  hard: [
+    { question: "Apa itu Big-O?", options: ["Analisis kompleksitas algoritma", "Optimasi kode", "Bahasa pemrograman", "Framework"], answer: 0 },
+    { question: "Jenis sorting tercepat adalah?", options: ["Quick Sort", "Bubble Sort", "Insertion Sort", "Merge Sort"], answer: 0 },
+    { question: "Apa itu ORM?", options: ["Object-Relational Mapping", "Output Resource Management", "Optimized Relational Model", "Output Routing Mapping"], answer: 0 },
+    { question: "Docker digunakan untuk?", options: ["Containerization", "Framework Database", "Frontend Development", "Keamanan API"], answer: 0 },
+    { question: "Apa itu Machine Learning?", options: ["Pembelajaran otomatis", "Framework", "Bahasa pemrograman", "Database"], answer: 0 },
+  ],
+};
 
-// Fungsi untuk mengacak urutan soal
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-// Mengacak soal
-shuffle(questions);
-function shuffleQuestions() {
-  for (let i = questions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [questions[i], questions[j]] = [questions[j], questions[i]];
-  }
-}
-
-shuffleQuestions();
-
-let currentQuestionIndex = 0;
+let level = "easy";
 let score = 0;
+let currentQuestionIndex = 0;
 
-// Elemen DOM
-const quizContent = document.getElementById("quiz-content");
-const startButton = document.getElementById("start-button");
+const levels = ["easy", "medium", "hard"];
+const questionContainer = document.getElementById("question");
+const optionsContainer = document.getElementById("options");
+const feedbackContainer = document.getElementById("feedback");
+const levelContainer = document.getElementById("level");
+const scoreContainer = document.getElementById("score");
 
-// Memulai kuis
-startButton.addEventListener("click", startQuiz);
+function loadQuestion() {
+  const data = quizData[level][currentQuestionIndex];
+  questionContainer.innerText = data.question;
+  optionsContainer.innerHTML = "";
 
-function startQuiz() {
-  startButton.style.display = "none";
-  showQuestion(questions[currentQuestionIndex]);
-}
-
-// Menampilkan soal
-function showQuestion(question) {
-  quizContent.innerHTML = ""; // Hapus konten sebelumnya
-
-  // Tampilkan pertanyaan
-  const questionText = document.createElement("div");
-  questionText.classList.add("question");
-  questionText.textContent = question.question;
-  quizContent.appendChild(questionText);
-
-  // Tampilkan opsi jawaban
-  const optionsContainer = document.createElement("div");
-  optionsContainer.classList.add("options");
-  quizContent.appendChild(optionsContainer);
-
-  question.options.forEach((option, index) => {
-    const optionElement = document.createElement("div");
-    optionElement.classList.add("option");
-    optionElement.innerHTML = `<span></span>${option}`;
-    optionElement.addEventListener("click", () => handleAnswer(index));
-    optionsContainer.appendChild(optionElement);
+  data.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.innerText = option;
+    button.className = "bg-indigo-700 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded";
+    button.addEventListener("click", () => checkAnswer(index));
+    optionsContainer.appendChild(button);
   });
 }
 
-// Menangani jawaban
-function handleAnswer(selectedIndex) {
-  const question = questions[currentQuestionIndex];
-  const options = document.querySelectorAll(".option");
-
-  options.forEach((option, index) => {
-    const span = option.querySelector("span");
-    if (index === question.correctAnswer) {
-      option.classList.add("correct");
-      span.textContent = "✓"; // Tanda centang untuk jawaban benar
-    } else if (index === selectedIndex) {
-      option.classList.add("incorrect");
-      span.textContent = "✗"; // Tanda silang untuk jawaban salah
-    }
-
-    option.style.pointerEvents = "none"; // Nonaktifkan klik setelah jawaban
-  });
-
-  if (selectedIndex === question.correctAnswer) {
-    score++;
+function checkAnswer(selectedIndex) {
+  const data = quizData[level][currentQuestionIndex];
+  if (selectedIndex === data.answer) {
+    feedbackContainer.innerText = "Benar!";
+    feedbackContainer.className = "text-green-500 font-bold mt-4";
+    score += 10;
+    scoreContainer.innerText = `Score: ${score}`;
+  } else {
+    feedbackContainer.innerText = "Salah!";
+    feedbackContainer.className = "text-red-500 font-bold mt-4";
+    endGame(false);
+    return;
   }
 
-  // Beri waktu beberapa detik untuk menampilkan hasil sebelum lanjut ke soal berikutnya
-  setTimeout(() => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      showQuestion(questions[currentQuestionIndex]);
+  feedbackContainer.classList.remove("hidden");
+
+  // Lanjut ke pertanyaan berikutnya
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex >= quizData[level].length) {
+    const nextLevelIndex = levels.indexOf(level) + 1;
+
+    if (nextLevelIndex < levels.length) {
+      // Pindah ke level berikutnya
+      currentQuestionIndex = 0;
+      level = levels[nextLevelIndex];
+      levelContainer.innerText = `Level: ${level.charAt(0).toUpperCase() + level.slice(1)}`;
+      showLevelUpAnimation();
     } else {
-      showResult();
+      // Menang!
+      endGame(true);
+      return;
     }
-  }, 1500);
+  }
+
+  setTimeout(() => {
+    feedbackContainer.classList.add("hidden");
+    loadQuestion();
+  }, 1000);
 }
 
-// Menampilkan hasil akhir
-function showResult() {
-  quizContent.innerHTML = `<h2>Skor Anda: ${score} / ${questions.length}</h2>`;
-  const restartButton = document.createElement("button");
-  restartButton.textContent = "Mulai Lagi";
-  restartButton.addEventListener("click", restartQuiz);
-  quizContent.appendChild(restartButton);
+function showLevelUpAnimation() {
+  const levelUpAnimation = document.getElementById("level-up-animation");
+  levelUpAnimation.classList.remove("hidden");
+  setTimeout(() => {
+    levelUpAnimation.classList.add("hidden");
+  }, 2000);
 }
 
-// Memulai ulang kuis
-function restartQuiz() {
+function endGame(isWin) {
+  if (isWin) {
+    document.getElementById("quiz-container").classList.add("hidden");
+    document.getElementById("win-scene").classList.remove("hidden");
+  } else {
+    document.getElementById("quiz-container").classList.add("hidden");
+    document.getElementById("gameover-scene").classList.remove("hidden");
+    document.getElementById("final-score").innerText = `Skor Anda: ${score}`;
+  }
+}
+
+function restartGame() {
+  level = "easy";
   score = 0;
   currentQuestionIndex = 0;
-  shuffleQuestions();
-  showQuestion(questions[currentQuestionIndex]);
+
+  scoreContainer.innerText = `Score: ${score}`;
+  levelContainer.innerText = `Level: Easy`;
+
+  document.getElementById("quiz-container").classList.remove("hidden");
+  document.getElementById("win-scene").classList.add("hidden");
+  document.getElementById("gameover-scene").classList.add("hidden");
+
+  loadQuestion();
 }
+
+// Memulai permainan
+loadQuestion();

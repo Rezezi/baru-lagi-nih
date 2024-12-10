@@ -3,45 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kuis PPLG</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Quiz Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #level-up-animation {
+      animation: fadeInOut 2s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+    }
+
+    #win-animation, #gameover-animation {
+      animation: zoomIn 1.5s ease-out;
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
-<body>
-  <div class="quiz-container">
-    <div id="quiz-header">
-      <h1>Kuis PPLG</h1>
-      <p id="quiz-desc">Sebelum memulai, berikut adalah penjelasan singkat mengenai materi pemrograman.</p>
+<body class="bg-gradient-to-br from-indigo-900 to-purple-900 text-white min-h-screen flex items-center justify-center">
+  <!-- Kontainer Kuis -->
+  <div id="quiz-container" class="w-full max-w-lg p-8 bg-purple-800 rounded-lg shadow-lg text-center">
+    <h1 id="question" class="text-xl font-bold mb-6">Pertanyaan akan muncul di sini...</h1>
+    <div id="options" class="grid grid-cols-2 gap-4">
+      <!-- Opsi akan diisi melalui JavaScript -->
     </div>
-    <div id="quiz-content">
-      <div id="info">
-        <h2>Apa Itu Pemrograman?</h2>
-        <p>
-          Pemrograman adalah proses menulis, menguji, dan memelihara kode untuk memberikan instruksi kepada komputer. 
-          Ini adalah dasar untuk membuat aplikasi dan sistem yang membantu menyelesaikan tugas atau memecahkan masalah.
-        </p>
-        <h3>Konsep Dasar Pemrograman:</h3>
-        <ul>
-          <li><strong>Variabel dan Tipe Data:</strong> Tempat menyimpan data dengan jenis tertentu.</li>
-          <li><strong>Struktur Kontrol:</strong> Mengatur alur program dengan kondisi tertentu.</li>
-          <li><strong>Fungsi:</strong> Blok kode yang dapat digunakan kembali.</li>
-          <li><strong>Struktur Data:</strong> Mengorganisir data untuk efisiensi.</li>
-          <li><strong>Algoritma:</strong> Langkah-langkah logis untuk menyelesaikan masalah.</li>
-        </ul>
-        <h3>Manfaat Belajar Pemrograman:</h3>
-        <ul>
-          <li>Meningkatkan kemampuan berpikir logis dan kreatif.</li>
-          <li>Membuka peluang karir di bidang teknologi.</li>
-          <li>Menciptakan solusi untuk berbagai masalah sehari-hari.</li>
-        </ul>
-      </div>
-      <button id="start-button">Mulai</button>
+    <div class="mt-6 flex justify-between">
+      <span id="level" class="text-sm font-medium">Level: Easy</span>
+      <span id="score" class="text-sm font-medium">Score: 0</span>
     </div>
-    <div id="score" style="display: none;">
-      <p>Skor Anda: <span id="score-value">0</span></p>
-      <button id="restart-button">Coba Lagi</button>
-    </div>
+    <div id="feedback" class="mt-4 text-sm hidden"></div>
   </div>
-  
+
+  <!-- Animasi Level-Up -->
+  <div id="level-up-animation" class="hidden fixed inset-0 bg-purple-900 text-white flex items-center justify-center">
+    <h1 class="text-5xl font-extrabold">LEVEL UP!</h1>
+  </div>
+
+  <!-- Scene Win -->
+  <div id="win-scene" class="hidden fixed inset-0 bg-gradient-to-br from-green-400 to-green-600 text-white flex flex-col items-center justify-center">
+    <h1 id="win-animation" class="text-6xl font-extrabold">Congratulations!</h1>
+    <p class="text-xl mt-4">You answered all questions correctly!</p>
+    <button onclick="restartGame()" class="bg-white text-green-800 font-bold mt-6 py-2 px-6 rounded-lg shadow-lg hover:bg-green-200">
+      Restart Game
+    </button>
+  </div>
+
+  <!-- Scene Game Over -->
+  <div id="gameover-scene" class="hidden fixed inset-0 bg-gradient-to-br from-red-500 to-red-700 text-white flex flex-col items-center justify-center">
+    <h1 id="gameover-animation" class="text-6xl font-extrabold">Game Over!</h1>
+    <p id="final-score" class="text-xl mt-4">Skor Anda: 0</p>
+    <button onclick="restartGame()" class="bg-white text-red-800 font-bold mt-6 py-2 px-6 rounded-lg shadow-lg hover:bg-red-200">
+      Restart Game
+    </button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
