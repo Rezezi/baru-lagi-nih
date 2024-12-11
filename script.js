@@ -1,24 +1,24 @@
 const quizData = {
   easy: [
     { question: "Apa itu PPLG?", options: ["Pengembangan Perangkat Lunak dan Gim", "Pemrograman Lanjutan Generasi", "Pemrograman Lengkap dan Gimifikasi", "Pemecahan Masalah Logika"], answer: 0 },
-    { question: "HTML adalah?", options: ["Bahasa Markup", "Bahasa Backend", "Framework", "Database"], answer: 0 },
-    { question: "CSS digunakan untuk?", options: ["Membuat tampilan", "Logika backend", "Keamanan data", "Otentikasi"], answer: 0 },
-    { question: "Apa itu Tailwind CSS?", options: ["Framework CSS", "Bahasa backend", "Framework Database", "Bahasa Pemrograman"], answer: 0 },
+    { question: "HTML adalah?", options: ["Bahasa backend", "Bahasa markup", "Framework", "Database"], answer: 1 },
+    { question: "CSS digunakan untuk?", options: ["otentikasi", "Logika backend", "Keamanan data", "Membuat tampilan"], answer: 3 },
+    { question: "Apa itu Tailwind CSS?", options: ["Framework Database", "Bahasa backend", "Framework CSS", "Bahasa Pemrograman"], answer: 2 },
     { question: "Bahasa Java digunakan untuk?", options: ["Semua di atas", "Frontend", "Android", "Pemrograman game"], answer: 0 },
   ],
   medium: [
-    { question: "Apa itu OOP?", options: ["Object-Oriented Programming", "Optimasi Online Programming", "Object Output Processing", "Optimasi Parsing"], answer: 0 },
-    { question: "Apa itu IDE?", options: ["Integrated Development Environment", "Integrated Debugging Entry", "Interactive Debug Editor", "Interactive Development Event"], answer: 0 },
-    { question: "React digunakan untuk?", options: ["Membuat UI", "Backend", "Database", "Keamanan"], answer: 0 },
-    { question: "API adalah?", options: ["Application Programming Interface", "Artificial Intelligence Program", "Automation Programming Integration", "Abstract Parsing Index"], answer: 0 },
+    { question: "Apa itu OOP?", options: ["Optimasi parsing", "Optimasi Online Programming", "Object Output Processing", "Object-Oriented Programming"], answer: 3 },
+    { question: "Apa itu IDE?", options: ["Interactive Debug Editor", "Integrated Debugging Entry", "Integrated Development Environment", "Interactive Development Event"], answer: 2 },
+    { question: "React digunakan untuk?", options: ["Backend", "Membuat UI", "Database", "Keamanan"], answer: 1 },
+    { question: "API adalah?", options: ["Abstract Parsing Index", "Artificial Intelligence Program", "Automation Programming Integration", "Application Programming Interface"], answer: 3 },
     { question: "Apa itu REST?", options: ["Representational State Transfer", "Relational State Transfer", "Remote Event System", "Runtime Environment State"], answer: 0 },
   ],
   hard: [
-    { question: "Apa itu Big-O?", options: ["Analisis kompleksitas algoritma", "Optimasi kode", "Bahasa pemrograman", "Framework"], answer: 0 },
-    { question: "Jenis sorting tercepat adalah?", options: ["Quick Sort", "Bubble Sort", "Insertion Sort", "Merge Sort"], answer: 0 },
+    { question: "Apa itu Big-O?", options: ["Optimasi Kode ", "Analisis kompleksitas algoritma", "Bahasa pemrograman", "Framework"], answer: 1 },
+    { question: "Jenis sorting tercepat adalah?", options: ["Insertion Sort", "Bubble Sort", "Quick Sort", "Merge Sort"], answer: 2 },
     { question: "Apa itu ORM?", options: ["Object-Relational Mapping", "Output Resource Management", "Optimized Relational Model", "Output Routing Mapping"], answer: 0 },
     { question: "Docker digunakan untuk?", options: ["Containerization", "Framework Database", "Frontend Development", "Keamanan API"], answer: 0 },
-    { question: "Apa itu Machine Learning?", options: ["Pembelajaran otomatis", "Framework", "Bahasa pemrograman", "Database"], answer: 0 },
+    { question: "Apa itu Machine Learning?", options: ["Bahasa Pemrograman", "Framework", "Pembelajaran otomatis", "Database"], answer: 2 },
   ],
 };
 
