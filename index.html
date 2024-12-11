@@ -16,6 +16,11 @@
       transform: scale(1.05);
       transition: all 0.2s ease-in-out;
     }
+
+    #level-up-animation h2 {
+      animation: bounceText 1s infinite;
+    }
+
     /* Keyframes for animations */
     @keyframes textZoomIn {
       0% {
@@ -48,6 +53,19 @@
     .bounce {
       animation: bounceText 1s infinite;
     }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex items-center justify-center">
@@ -73,6 +91,14 @@
     <h1 class="text-5xl font-bold text-yellow-400 zoom-in">Game Over</h1>
     <p id="final-score" class="mt-4 text-lg text-gray-300 bounce"></p>
     <button onclick="restartGame()" class="mt-6 bg-yellow-500 text-black font-bold py-2 px-6 rounded hover:bg-yellow-400">Restart Game</button>
+  </div>
+
+  <!-- Level-Up Animation -->
+  <div id="level-up-animation" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center">
+    <div class="text-yellow-400 text-center">
+      <h2 class="text-5xl font-bold fade-in">Level Up!</h2>
+      <p class="mt-4 text-gray-300">Get ready for the next level!</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
